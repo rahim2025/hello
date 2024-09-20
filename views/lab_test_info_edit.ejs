@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Edit Lab Test Information</title>
+</head>
+<body>
+    <h1>Edit Lab Test Information</h1>
+    <form action="/lab_test/<%= test.test_id %>/edit" method="POST">
+        <label for="test_name">Test Name:</label>
+        <input type="text" id="test_name" name="test_name" value="<%= test.test_name %>">
+        <label for="cost">Cost:</label>
+        <input type="text" id="cost" name="cost" value="<%= test.cost %>">
+        <label for="description">Description:</label>
+        <textarea id="description" name="description"><%= test.description %></textarea>
+        <button type="submit">Update</button>
+    </form>
+</body>
+</html>

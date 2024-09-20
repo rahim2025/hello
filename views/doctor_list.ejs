@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="doctor_table.css">
+    <title>All Doctor List</title>
+</head>
+<body>
+    <header>
+        <h1>ALL DOCTOR LIST</h1>
+    </header>
+
+    <table>
+        <tr>
+            <th>Id</th>
+            <th>Name</th>
+            <th>Phone No</th>
+            <th>Email</th>
+            <th>Specialization</th>
+            <th>Qualification</th>
+            <th>Charge</th>
+            <th>Edit</th>
+            <th>Delete</th>
+          </tr>
+          <% for(doctor of doctors) { %>
+            <tr>
+                <td><%= doctor.doctor_id %></td>
+                <td><%= doctor.name %></td>
+                <td><%= doctor.phone_num %></td>
+                <td><%= doctor.email %></td>
+                <td><%= doctor.specialization %></td>
+                <td><%= doctor.qualification %></td>
+                <td><%= doctor.charge %></td>
+                <td>
+                    <form method="get" action="/doctor/<%= doctor.doctor_id %>/edit">
+                        <button>Edit Information</button>
+                    </form>
+                </td>
+                <td>
+                    <form method="post" action="/doctor/<%=doctor.doctor_id%>/?_method=DELETE ">
+                        <button>Delete</button>
+                    </form>
+                </td>
+            </tr>
+           <% } %>
+    </table>
+    <form method="get" action="/doctor/add_new_doctor">
+        <button>Add new Doctor</button>
+    </form>
+    
+</body>
+</html>

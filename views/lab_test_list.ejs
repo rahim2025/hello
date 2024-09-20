@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>All Lab Tests</title>
+    <link rel="stylesheet" href="doctor_table.css">
+</head>
+<body>
+    <h1>All Lab Tests</h1>
+    <ul>
+        <% labTests.forEach(function(test) { %>
+            <li>
+                <strong><%= test.test_name %></strong> - Cost: <%= test.cost %>, Description: <%= test.description %>, Patient ID: <%= test.patient_id %>
+                <a href="/lab_test/<%= test.test_id %>/edit">Edit</a>
+                <form action="/lab_test/<%= test.test_id %>/?_method=DELETE" method="POST">
+                    <button type="submit">Delete</button>
+                </form>
+            </li>
+        <% }); %>
+    </ul>
+    <a href="/lab_test/add_new_test">Add New Lab Test</a>
+</body>
+</html>

@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Add New Appointment</title>
+  <link rel="stylesheet" href="add_new_appointment.css">
+</head>
+<body>
+
+  <h1>Add New Appointment</h1>
+
+  <form method="POST" action="/appointment/add_new_appointment">
+    <label for="patient_id">Patient Name:</label>
+    <select name="patient_id" required>
+      <% patients.forEach(patient => { %>
+        <option value="<%= patient.patient_id %>"><%= patient.name %></option>
+      <% }); %>
+    </select>
+
+    <br>
+
+    <label for="doctor_id">Doctor Name:</label>
+    <select name="doctor_id" id="doctorId" required>
+      <% doctors.forEach(doctor => { %>
+        <option value="<%= doctor.doctor_id %>" data-charge="<%= doctor.charge %>"><%= doctor.name %></option>
+      <% }); %>
+    </select>
+
+    <br>
+
+    <label for="date">Date:</label>
+    <input type="date" name="date" required>
+
+    <br>
+
+    <label for="time">Time:</label>
+    <input type="text" name="time" required>
+
+    <br>
+
+    <label for="visiting_fee">Visiting Fee:</label>
+    <input type="number" name="visiting_fee" id="visitingFee" required>
+    <br>
+
+    <button type="submit">Add Appointment</button>
+  </form>
+
+
+
+  
+
+</body>
+</html>
+

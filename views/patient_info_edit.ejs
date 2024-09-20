@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="info_edit.css">
+    <title>Edit User</title>
+  </head>
+  <body>
+    <h3>Edit Information for : <%= patient.name%></h3>
+
+    <form method="post" action="/patient/<%= patient.patient_id %>/edit?_method=PATCH">
+      <textarea name="phone_num"><%= patient.phone_num %></textarea>
+      <textarea name="email"><%= patient.email %></textarea>
+      <textarea name="date_of_birth" ></textarea><%= patient.date_of_birth %></textarea>
+      <textarea name="address"><%= patient.address %></textarea>
+      <textarea name="history"><%= patient.history %></textarea>
+
+      
+      <button>Submit</button>
+    </form>
+  </body>
+</html>
